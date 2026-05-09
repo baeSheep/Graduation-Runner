@@ -37,19 +37,18 @@ export default class GameScene extends Phaser.Scene {
         // FIX: ép canvas fill toàn bộ màn hình
         // ─────────────────────────────────────────────
         const fixCSS = () => {
-            const canvas = document.querySelector("canvas");
-            if(!canvas) return;
+        const canvas = document.querySelector("canvas");
+        if(!canvas) return;
 
-            // Xoá margin/padding từ html, body, canvas
-            document.documentElement.style.cssText =
-                "margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;";
-            document.body.style.cssText =
-                "margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;";
+        document.documentElement.style.cssText =
+            "margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;";
+        document.body.style.cssText =
+            "margin:0;padding:0;width:100%;height:100%;overflow:hidden;background:#000;display:flex;align-items:center;justify-content:center;";
 
-            canvas.style.cssText =
-                "display:block;width:100vw;height:100vh;object-fit:contain;image-rendering:pixelated;";
-        };
-        fixCSS();
+        canvas.style.cssText =
+            "display:block;width:100vw;height:100vh;object-fit:contain;image-rendering:pixelated;";
+    };
+    fixCSS();
 
         // ─────────────────────────────────────────────
         // BACKGROUND FIT

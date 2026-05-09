@@ -18,6 +18,26 @@
 </div> -->
 
 <script type="module" src="main.js"></script>
+<!-- Overlay xoay máy -->
+<div id="rotate-overlay">
+  <div class="icon">📱</div>
+  <p>PLEASE ROTATE<br>YOUR DEVICE<br>TO LANDSCAPE</p>
+</div>
 
+<script>
+  // Thử lock orientation về landscape (chỉ hoạt động khi có user gesture)
+  function tryLockLandscape() {
+    const scr = window.screen;
+    if (scr.orientation && scr.orientation.lock) {
+      scr.orientation.lock("landscape").catch(() => {
+        // Browser không cho phép lock → overlay CSS sẽ xử lý
+      });
+    }
+  }
+
+  // Gọi khi user chạm / click lần đầu
+  document.addEventListener("pointerdown", tryLockLandscape, { once: true });
+  document.addEventListener("keydown",     tryLockLandscape, { once: true });
+</script>
 </body>
 </html>

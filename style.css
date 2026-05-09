@@ -23,3 +23,37 @@ body {
     font-size: 18px;
     color: #444;
 }
+  /* ── ROTATE OVERLAY ── */
+  #rotate-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0a0a1a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    gap: 20px;
+  }
+  #rotate-overlay .icon {
+    font-size: 56px;
+    animation: spin 1.5s ease-in-out infinite alternate;
+  }
+  #rotate-overlay p {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #f7e03c;
+  }
+  @keyframes spin {
+    from { transform: rotate(-20deg); }
+    to   { transform: rotate(20deg); }
+  }
+
+  /* Ẩn canvas khi portrait trên mobile */
+  @media (max-width: 900px) and (orientation: portrait) {
+    canvas { display: none !important; }
+    #rotate-overlay { display: flex !important; }
+  }
