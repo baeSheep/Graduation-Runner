@@ -1,0 +1,25 @@
+body {
+    margin: 0;
+    background: #f6d7a7;
+    font-family: sans-serif;
+}
+
+#ui {
+    position: absolute;
+    width: 100%;
+    top: 40%;
+    text-align: center;
+}
+
+#nameInput {
+    padding: 12px;
+    font-size: 18px;
+    border-radius: 10px;
+    border: none;
+}
+
+#hint {
+    margin-top: 10px;
+    font-size: 18px;
+    color: #444;
+}
