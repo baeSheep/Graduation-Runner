@@ -27,6 +27,41 @@
     object-fit: contain;
     image-rendering: pixelated;
   }
+
+  /* ── THÊM PHẦN NÀY ── */
+  #rotate-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: #0a0a1a;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    text-align: center;
+    gap: 20px;
+  }
+  #rotate-overlay .icon {
+    font-size: 56px;
+    animation: rockit 1.5s ease-in-out infinite alternate;
+  }
+  #rotate-overlay p {
+    font-size: 10px;
+    line-height: 1.8;
+    color: #f7e03c;
+  }
+  @keyframes rockit {
+    from { transform: rotate(-20deg); }
+    to   { transform: rotate(20deg); }
+  }
+
+  /* Hiện overlay khi portrait trên mobile */
+  @media (max-width: 900px) and (orientation: portrait) {
+    canvas { display: none !important; }
+    #rotate-overlay { display: flex !important; }
+  }
 </style>
 </head>
 <body>
@@ -35,13 +70,13 @@
     <input id="nameInput" placeholder="Enter your name..." />
     <div id="hint">Tap / Press SPACE to Begin</div>
 </div> -->
-
 <!-- Overlay xoay máy -->
 <div id="rotate-overlay">
   <div class="icon">📱</div>
   <p>PLEASE ROTATE<br>YOUR DEVICE<br>TO LANDSCAPE</p>
 </div>
 
+<script type="module" src="main.js"></script>
 <script>
   // Thử lock orientation về landscape (chỉ hoạt động khi có user gesture)
   function tryLockLandscape() {
@@ -57,7 +92,5 @@
   document.addEventListener("pointerdown", tryLockLandscape, { once: true });
   document.addEventListener("keydown",     tryLockLandscape, { once: true });
 </script>
-<script type="module" src="main.js"></script>
-
 </body>
 </html>
